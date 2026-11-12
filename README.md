@@ -12,12 +12,13 @@ The pipeline processes incoming tickets through a deterministic, multi-stage pip
 
 ```mermaid
 graph TD
-    A[Raw Incident Text] --> B[PII Sanitizer & Extractor]
-    B --> C[LLM Structured Extractor (Pydantic)]
-    C --> D[Deterministic Policy & SLA Engine]
-    D --> E{Urgency == CRITICAL?}
-    E -- Yes --> F[Automatic Escalation & PagerDuty Page]
-    E -- No --> G[Standard Team Routing & Webhook Dispatch]
-    F --> H[(SQLite Persistence: tickets & audit_logs)]
+    A["Raw Incident Text"] --> B["PII Sanitizer & Extractor"]
+    B --> C["LLM Structured Extractor (Pydantic)"]
+    C --> D["Deterministic Policy & SLA Engine"]
+    D --> E{"Urgency == CRITICAL?"}
+    E -- Yes --> F["Automatic Escalation & PagerDuty Page"]
+    E -- No --> G["Standard Team Routing & Webhook Dispatch"]
+    F --> H[("SQLite Persistence: tickets & audit_logs")]
     G --> H
-    H --> I[Observability Metrics Endpoint]
+    H --> I["Observability Metrics Endpoint"]
+```
