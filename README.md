@@ -11,7 +11,7 @@ Designed for enterprise reliability, the engine parses unstructured operational 
 The pipeline processes incoming tickets through a deterministic, multi-stage pipeline:
 
 ```mermaid
-graph TD
+graph LR
     A["Raw Incident Text"] --> B["PII Sanitizer & Extractor"]
     B --> C["LLM Structured Extractor (Pydantic)"]
     C --> D["Deterministic Policy & SLA Engine"]
