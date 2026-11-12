@@ -21,4 +21,3 @@ graph TD
     F --> H[("SQLite Persistence: tickets & audit_logs")]
     G --> H
     H --> I["Observability Metrics Endpoint"]
-```
